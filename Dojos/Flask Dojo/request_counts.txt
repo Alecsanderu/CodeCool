@@ -1,0 +1,4 @@
+GET  43
+POST  30
+PUT  0
+DELETE  8
