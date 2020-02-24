@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics</title>
+</head>
+<body>
+<table >
+    <th>Method</th>
+    <th>Count</th>
+     <tbody >
+           <tr>
+               {% for k, v in data1.items() %}
+               <td>{{k}}</td>
+               <td>{{v}}</td>
+           </tr>
+     </tbody>
+            {% endfor %}
+</table>
+
+<form action="/">
+    <input type="submit" value="Back" />
+</form>
+</body>
+</html>
