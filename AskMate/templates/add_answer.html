@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1>ADD A NEW ANSWER</h1>
+</div>
+<form action="{{url_for('new_answer', question_id=question['id'])}}" method="POST">
+<table class="table">
+    <thead class="thead-dark" style="width : 100%">
+    <tr>
+    <th> <h2>Your answer: </h2>  </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><textarea name="text" rows="10" cols="100">Type your answer here.</textarea></tr></td>
+
+   <tr> <td><button type="submit" class="btn btn-info"> Save </button>
+    <a href={{url_for('display_one_question', question_id=question['id'])}} type="button" class="btn btn-info">Back To Question</a></td>
+    </tr>
+    </tbody>
+</table>
+</form>
+
+{% endblock %}

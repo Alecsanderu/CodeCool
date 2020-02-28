@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1>Question ID: {{ question['id'] }}</h1>
+</div>
+<form action="/edit-question-to-csv/{{ question['id'] }}" method="POST">
+<table class="table">
+    <thead class="thead-dark" style="width : 100%">
+    <tr><th><h2>Edit Title:</h2> </th></tr>
+    <tr><th><input type="text" name="title" size ="100" width="100" value ="{{question['title'] }}" ></th></tr>
+    <tr><th> <label for="message" > <h2>Edit Message:</h2></label></th></tr>
+
+    <tr><th><textarea name='message' id=message rows="4" cols="50">{{question['message']}}</textarea> </th></tr>
+    </thead>
+    <tbody><tr><td><button   type="submit" class="btn btn-info"> Save </button>    </td></tr></tbody>
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1>Welcome To Our Forum</h1>
+    <p class="lead">We hope you will find useful info here.</p>
+    <p class="lead"> Please Like and Share </p>
+    <a href="https://www.facebook.com/CodecoolRomania/" class="fa fa-facebook"></a>
+</div>
+<<<<<<< HEAD
+<a href="/add_question" class="btn btn-info" type = "button">Add Question</a>
+<div class = "d-inline">
+<form method = "GET" >
+        <select name="sort_by"  id="Sorting" required>
+            <option selected value = "sorted_by">Sort By</option>
+            <option value="title" {% if sort_by == 'title' %} selected {% endif %}>Title</option>
+            <option value="message"  {% if sort_by == 'message' %} selected {% endif %}>Message</option>
+            <option value="view_number"  {% if sort_by == 'view_number' %} selected {% endif %}>Number of Views</option>
+            <option value="vote_number"  {% if sort_by == 'vote_number' %} selected {% endif %}>Number of Votes</option>
+        </select>
+        <select name="asc_dsc" required>
+            <option value="asc" {% if asc_dsc == 'asc' %} selected {% endif %}>Ascending</option>
+            <option value="desc" {% if asc_dsc == 'desc' %} selected {% endif %}>Descending</option>
+        </select>
+    <button type="submit">Sort</button>
+</form>
+    </div>
+
+    <h2>Questions</h2>
+
+<a href="/add_question" class="btn btn-info" type = "button">Add Question</a>
+
+<table class="table">
+    <thead class="thead-dark" style="width : 100%">
+        <tr >
+            <th scope="col">ID</th>
+            <th scope="col">SUBMISSION TIME</th>
+            <th scope="col">VIEW NUMBER</th>
+            <th scope="col">VOTE NUMBER</th>
+            <th scope="col">TITLE</th>
+            <th scope="col">MESSAGE</th>
+            <th scope="col">IMAGE</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for question in questions %}
+        <tr> {% for info in question %}
+                {% if question[info] == question['title'] %}
+            <td> <a href="{{url_for('display_one_question', question_id=question['id'] )}}"> {{ question['title']}}</a></td>
+                {% else %}
+            <td>{{ question[info] }}</td>
+                {% endif %}
+             {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

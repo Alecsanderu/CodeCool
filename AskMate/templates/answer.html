@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="jumbotron text-center">
+        <h1>Answer</h1>
+    </div>
+<table class="table">
+    <thead class="thead-dark" style="width : 100%">
+    <tr>
+        <th>{{answer['message']}}</th>
+    </tr>
+    <a href='/answer/{{answer["id"]/delete' type="button" class="btn btn-info">Delete</a>
+<a href="/list" type="button" class="btn btn-info">Back To List</a>
+    </thead>
+</table>
+{% endblock %}
