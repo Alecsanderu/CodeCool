@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from flask import Flask, render_template,url_for, request, redirect
 import data_manager as dm
 import connection as c
@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 
 
-=======
 from flask import Flask, render_template
 from flask import request
 from flask import redirect
@@ -17,8 +16,6 @@ import connection as c
 
 app = Flask(__name__)
 
-questions = dm.display_questions()
->>>>>>> aa595fcfca200c262cb7de4fee07550a5c5b1bbe
 def get_question_by_id(id):
     questions = dm.display_info('./sample_data/question.csv')
     for question in questions:
@@ -56,9 +53,9 @@ def display_one_question(question_id):
 @app.route('/add-question')
 def add_question():
     # question = c.write_to_questions("./sample_data/question.csv", )
-<<<<<<< HEAD
+
     return render_template('add_question.html')
-=======
+
     return render_template('add-question.html')
 
 @app.route('/add-question-to-csv', methods=['GET'])
@@ -66,7 +63,7 @@ def add_question_to_csv():
     question = c.write_to_questions("./sample_data/question.csv", request.args.get('title'), request.args.get('text'))
     print(request.args.get('title'))
     return redirect("/list")
->>>>>>> aa595fcfca200c262cb7de4fee07550a5c5b1bbe
+
 
 @app.route('/add-question-to-csv', methods=['GET', 'POST'])
 def add_question_to_csv():
